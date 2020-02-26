@@ -1,31 +1,45 @@
 header {
-  background-color: rgb(255, 195, 98);
+  background-color: #f7dc6f;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding-left: 10px;
   padding-right: 10px;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 5rem;
 }
 
-i {
+header i {
   font-size: 3rem;
   color: #333;
 }
 
-.primary-logo {
+header .primary-logo {
   margin: 8px;
 }
 
-.primary-ul {
+header .primary-ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   list-style-type: none;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-left: 0;
 }
 
-.primary-ul li {
+header .primary-ul li {
   margin-left: 25px;
   cursor: pointer;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
+/*# sourceMappingURL=Header.css.map */

@@ -1,0 +1,33 @@
+$primaryBackground: rgb(247, 220, 111);
+
+header {
+  background-color: $primaryBackground;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+  align-items: center;
+  height: 5rem;
+
+  i {
+    font-size: 3rem;
+    color: #333;
+  }
+
+  .primary-logo {
+    margin: 8px;
+  }
+
+  .primary-ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    padding-left: 0;
+  }
+
+  .primary-ul li {
+    margin-left: 25px;
+    cursor: pointer;
+    user-select: none;
+  }
+}

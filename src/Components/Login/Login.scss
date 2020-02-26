@@ -1,0 +1,23 @@
+$primaryBackground: rgb(215, 219, 221);
+
+body {
+  background-color: $primaryBackground;
+}
+
+.primary-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 13rem;
+}
+
+.info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-user {
+  display: flex;
+  align-items: center;
+}
