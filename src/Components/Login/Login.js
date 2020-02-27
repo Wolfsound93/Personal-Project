@@ -16,7 +16,7 @@ class Login extends Component {
             <button>Log in</button>
             <div className='new-user'>
               <h6>New User?</h6>
-              <h6>create an account</h6>
+              <h6 className='sml-act'>create an account</h6>
             </div>
           </section>
         </div>

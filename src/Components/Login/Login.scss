@@ -1,23 +1,66 @@
-$primaryBackground: rgb(215, 219, 221);
+$colors: (
+  primaryBackground: rgb(215, 219, 221),
+  primary-white: white,
+  primaryDark: #333,
+  light-blue: rgb(133, 193, 233)
+);
 
-body {
-  background-color: $primaryBackground;
+$sizes: (
+  input-primary-width: 15rem,
+  input-primary-height: 20px,
+  primaryTitleSize: 4rem
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
 }
+
+@function size($size-name) {
+  @return map-get($sizes, $size-name);
+}
+
+// body {
+//   background-color: color(primaryBackground);
+// }
 
 .primary-login {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 13rem;
+  padding: 10rem;
+
+  h1 {
+    font-size: size(primaryTitleSize);
+    color: color(primary-white);
+  }
+
+  i {
+    font-size: 10rem;
+    color: color(primaryDark);
+  }
 }
 
 .info-box {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  input {
+    width: size(input-primary-width);
+    height: size(input-primary-height);
+  }
+
+  button {
+    height: 2rem;
+    width: 4rem;
+  }
 }
 
 .new-user {
   display: flex;
   align-items: center;
+
+  .sml-act {
+    color: color(light-blue);
+  }
 }

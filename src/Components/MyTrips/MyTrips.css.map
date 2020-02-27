@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,SAAS,CAAC;EACR,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,WAAW,EAAE,MAAM;EACnB,UAAU,EAAE,IAAI;CAQjB;;AAZD,AAME,SANO,CAMP,QAAQ,CAAC;EACP,gBAAgB,EATH,OAAkB;EAU/B,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;EACX,aAAa,EAAE,GAAG;CACnB",
+    "sources": [
+        "MyTrips.scss"
+    ],
+    "names": [],
+    "file": "MyTrips.css"
+}

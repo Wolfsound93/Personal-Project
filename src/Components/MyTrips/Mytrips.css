@@ -1,0 +1,21 @@
+.trip-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 3rem;
+}
+
+.trip-box .add-btn {
+  background-color: #f7dc6f;
+  height: 2rem;
+  width: 7rem;
+  border-radius: 3px;
+}
+/*# sourceMappingURL=MyTrips.css.map */

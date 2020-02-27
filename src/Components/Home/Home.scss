@@ -1,0 +1,21 @@
+%style-1 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+body {
+  background-color: #f4f4f4;
+}
+
+.greeting-title {
+  @extend %style-1;
+}
+
+.web-des {
+  @extend %style-1;
+}
+
+.user-direct {
+  @extend %style-1;
+}
