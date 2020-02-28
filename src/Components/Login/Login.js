@@ -6,7 +6,7 @@ class Login extends Component {
   render() {
     return (
       <section>
-        <Header />
+        {/* <Header /> */}
         <div className='primary-login'>
           <h1>Member Login</h1>
           <i class='fas fa-user'></i>

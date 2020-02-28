@@ -19,10 +19,6 @@ $sizes: (
   @return map-get($sizes, $size-name);
 }
 
-// body {
-//   background-color: color(primaryBackground);
-// }
-
 .primary-login {
   display: flex;
   flex-direction: column;
@@ -31,7 +27,7 @@ $sizes: (
 
   h1 {
     font-size: size(primaryTitleSize);
-    color: color(primary-white);
+    color: color(primaryDark);
   }
 
   i {
@@ -62,5 +58,6 @@ $sizes: (
 
   .sml-act {
     color: color(light-blue);
+    cursor: pointer;
   }
 }

@@ -14,7 +14,7 @@
 
 .primary-login h1 {
   font-size: 4rem;
-  color: white;
+  color: #333;
 }
 
 .primary-login i {
@@ -56,5 +56,6 @@
 
 .new-user .sml-act {
   color: #85c1e9;
+  cursor: pointer;
 }
 /*# sourceMappingURL=Login.css.map */

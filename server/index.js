@@ -1,8 +1,12 @@
+require('dotenv').config();
 const express = require('express');
 const massive = require('massive');
+const session = require('express-session');
 const app = express();
-require('dotenv').config();
-const { SERVER_PORT, CONNECTION_STRING } = process.env;
+const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
+
+//CONTROLLERS
+const auth = require('./controllers/authController');
 
 massive(CONNECTION_STRING)
   .then(db => {
@@ -11,6 +15,23 @@ massive(CONNECTION_STRING)
   })
   .catch(res => console.log(res));
 
+app.use(
+  session({
+    saveUninitialized: true,
+    resave: false,
+    secret: SESSION_SECRET,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7
+    }
+  })
+);
+
 app.use(express.json());
+
+//authentication endpoints
+app.post('/auth/register', auth.register);
+app.post('/auth/login', auth.login);
+app.get('/auth/logout', auth.logOut);
+app.get('/auth/user', auth.get_user);
 
 app.listen(SERVER_PORT, () => console.log(`the server in on!`));

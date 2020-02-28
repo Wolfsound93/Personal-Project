@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Mytrips.css';
 import Header from '../Header/Header';
 import AddTrip from '../AddTrip/AddTrip';
+import DisplayTrip from '../DisplayTrip/DisplayTrip';
 
 class MyTrips extends Component {
   render() {
@@ -13,6 +14,7 @@ class MyTrips extends Component {
           <button className='add-btn'>Add trip</button>
         </div>
         <AddTrip />
+        <DisplayTrip />
       </div>
     );
   }
