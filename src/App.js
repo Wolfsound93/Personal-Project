@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import Login from './Components/Login/Login';
-import Regsiter from './Components/Register/Register';
-import Home from './Components/Home/Home';
-import MyTrips from './Components/MyTrips/MyTrips';
+import { HashRouter } from 'react-router-dom';
 import routes from './routes';
 
 class App extends Component {
   render() {
-    return <div>{routes}</div>;
+    return (
+      <HashRouter>
+        <div>{routes}</div>;
+      </HashRouter>
+    );
   }
 }
 

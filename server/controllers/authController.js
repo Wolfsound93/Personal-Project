@@ -28,8 +28,8 @@ const register = (req, res) => {
 
 const login = (req, res) => {
   const db = req.app.get('db');
-  const { first_name, password } = req.body;
-  db.auth.get_user(first_name).then(user => {
+  const { user_email, password } = req.body;
+  db.auth.get_user(user_email).then(user => {
     if (user.length === 0) {
       res.status(400).json('user is not exist');
     } else {

@@ -1,2 +1,2 @@
 SELECT * FROM users
-WHERE first_name = $1
+WHERE user_email = $1
