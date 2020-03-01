@@ -4,6 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
   updateState,
+  resetFields,
   loginUser,
   getUser
 } from '../../redux/reducers/authReducer';
@@ -14,6 +15,7 @@ class Login extends Component {
   };
 
   handleClickLogin = () => {
+    console.log('handleClickLogin login line 18');
     this.props
       .loginUser(this.props.user_email, this.props.password)
       .then(res => {
@@ -33,17 +35,27 @@ class Login extends Component {
       return <Redirect to='/home' />;
     }
     return (
-      <section>
+      <section id='section-root'>
+        <header>
+          <nav>
+            <h1 className='primary-logo'>
+              <i class='fas fa-road'></i>TriPlan
+            </h1>
+          </nav>
+        </header>
         <div className='primary-login'>
-          <h1>Member Login</h1>
+          <h1>Welcome To TriPlan!</h1>
+          <h2>Please Log in!</h2>
           <i class='fas fa-user'></i>
           <section className='info-box'>
-            <input
-              type='text'
-              name='user_email'
-              placeholder='Enter your email address'
-              onChange={this.handleChange}
-            />
+            <div className='input-field1'>
+              <input
+                type='text'
+                name='user_email'
+                placeholder='Enter your email address'
+                onChange={this.handleChange}
+              />
+            </div>
             <input
               type='password'
               name='password'
@@ -75,6 +87,7 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, {
   updateState,
+  resetFields,
   loginUser,
   getUser
 })(Login);

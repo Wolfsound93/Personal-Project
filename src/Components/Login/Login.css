@@ -1,4 +1,8 @@
-.primary-login {
+body {
+  background-color: #bdc3c7;
+}
+
+#section-root .primary-login {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9,15 +13,24 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 10rem;
+  padding: 5rem;
 }
 
-.primary-login h1 {
+#section-root .primary-login h1 {
   font-size: 4rem;
-  color: #333;
+  color: white;
+  font-family: monospace;
+  margin: 10px 0px 20px;
 }
 
-.primary-login i {
+#section-root .primary-login h2 {
+  font-size: 3rem;
+  color: white;
+  font-family: monospace;
+  margin: 0px 0px 40px;
+}
+
+#section-root .primary-login i {
   font-size: 10rem;
   color: #333;
 }
@@ -38,11 +51,19 @@
 .info-box input {
   width: 15rem;
   height: 20px;
+  text-align: center;
+  margin: 4px 0 25px;
+  font-family: monospace;
+  font-size: 15px;
 }
 
 .info-box button {
+  width: 6rem;
   height: 2rem;
-  width: 4rem;
+  background-color: #333;
+  color: white;
+  border-radius: 8px;
+  font-family: unset;
 }
 
 .new-user {
@@ -54,8 +75,16 @@
           align-items: center;
 }
 
+.new-user h6 {
+  margin-right: 5px;
+}
+
 .new-user .sml-act {
-  color: #85c1e9;
+  color: #3498db;
   cursor: pointer;
+}
+
+.new-user a {
+  text-decoration: none;
 }
 /*# sourceMappingURL=Login.css.map */

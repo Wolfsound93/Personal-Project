@@ -1,14 +1,14 @@
 $colors: (
-  primaryBackground: rgb(215, 219, 221),
+  light-white: rgb(215, 219, 221),
   primary-white: white,
-  primaryDark: #333,
-  light-blue: rgb(133, 193, 233)
+  primary-dark: #333,
+  light-blue: #3498db,
+  dark-grey: #bdc3c7
 );
 
 $sizes: (
   input-primary-width: 15rem,
-  input-primary-height: 20px,
-  primaryTitleSize: 4rem
+  input-primary-height: 20px
 );
 
 @function color($color-name) {
@@ -19,20 +19,35 @@ $sizes: (
   @return map-get($sizes, $size-name);
 }
 
-.primary-login {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10rem;
+body {
+  background-color: color(dark-grey);
+}
 
-  h1 {
-    font-size: size(primaryTitleSize);
-    color: color(primaryDark);
-  }
+#section-root {
+  .primary-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem;
 
-  i {
-    font-size: 10rem;
-    color: color(primaryDark);
+    h1 {
+      font-size: 4rem;
+      color: color(primary-white);
+      font-family: monospace;
+      margin: 10px 0px 20px;
+    }
+
+    h2 {
+      font-size: 3rem;
+      color: color(primary-white);
+      font-family: monospace;
+      margin: 0px 0px 40px;
+    }
+
+    i {
+      font-size: 10rem;
+      color: color(primary-dark);
+    }
   }
 }
 
@@ -44,11 +59,18 @@ $sizes: (
   input {
     width: size(input-primary-width);
     height: size(input-primary-height);
+    text-align: center;
+    margin: 4px 0 25px;
+    font-family: monospace;
+    font-size: 15px;
   }
-
   button {
+    width: 6rem;
     height: 2rem;
-    width: 4rem;
+    background-color: color(primary-dark);
+    color: white;
+    border-radius: 8px;
+    font-family: unset;
   }
 }
 
@@ -56,8 +78,15 @@ $sizes: (
   display: flex;
   align-items: center;
 
+  h6 {
+    margin-right: 5px;
+  }
+
   .sml-act {
     color: color(light-blue);
     cursor: pointer;
+  }
+  a {
+    text-decoration: none;
   }
 }

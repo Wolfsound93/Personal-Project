@@ -4,20 +4,28 @@ const initialState = {
   first_name: '',
   password: '',
   user_email: '',
-  user: []
+  user: [],
+  loggedIn: false
 };
 
 // constants
-const UPDATE_STATE = 'UPDATE_STATE';
 const REGISTER_USER = 'REGISTER_USER';
 const LOGIN_USER = 'LOGIN_USER';
 const LOGOUT_USER = 'LOGOUT_USER';
 const GET_USER = 'GET_USER';
+const UPDATE_STATE = 'UPDATE_STATE';
+const RESET_FIELDS = 'RESET_FIELDS';
 
 export const updateState = e => {
   return {
     type: UPDATE_STATE,
     payload: e
+  };
+};
+
+export const resetFields = () => {
+  return {
+    type: RESET_FIELDS
   };
 };
 
@@ -64,15 +72,21 @@ export default function authReducer(state = initialState, action) {
         ...state,
         ...payload
       };
+    case RESET_FIELDS:
+      return {
+        ...state
+      };
     case `${REGISTER_USER}_PENDING`:
       return {
         ...state,
-        loading: true
+        loading: true,
+        loggedIn: true
       };
     case `${REGISTER_USER}_FULFILLED`:
       return {
         ...state,
-        loading: false
+        loading: false,
+        loggedIn: true
       };
     case `${LOGIN_USER}_PENDING`:
       return {
@@ -83,6 +97,7 @@ export default function authReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
+        loggedIn: true,
         user: payload.data
       };
     case `${LOGOUT_USER}_PENDING`:
@@ -94,6 +109,7 @@ export default function authReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
+        loggedIn: false,
         user: []
       };
     case `${GET_USER}_PENDING`:

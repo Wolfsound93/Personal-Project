@@ -3,16 +3,17 @@ const bcrypt = require('bcryptjs');
 const register = (req, res) => {
   const db = req.app.get('db');
   const { user_email, first_name, password } = req.body;
+  console.log('req.body register line 6', req.body);
   bcrypt
     .hash(password, 12)
     .then(hash => {
+      console.log('authCont line 9 password hashed');
       db.auth.register_user([user_email, first_name, hash]).then(user => {
         req.session.user = {
           id: user[0].user_id,
           user_email: user[0].user_email,
           first_name: user[0].first_name
         };
-        console.log(req.session);
         res.status(200).json(req.session.user);
       });
     })

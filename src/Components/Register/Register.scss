@@ -1,19 +1,79 @@
-.title-rya {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 10rem;
+$colors: (
+  light-gray: #bdc3c7,
+  white: white
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #f4f4f4;
-  border: 1px black solid;
-  margin: 2rem 25rem;
-  padding: 3rem;
+#register-root {
+  background-color: color(light-gray);
+  padding: 0rem 0rem 11rem 0rem;
+
+  .title-rya {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+      font-family: monospace;
+      font-size: 4rem;
+      color: color(white);
+      padding: 1rem;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 1px #c3c3c3 solid;
+    margin: 2% 41%;
+    padding: 0px 10px 0px 20px;
+    width: 13rem;
+    box-shadow: 0 3px 7px #333;
+
+    input {
+      font-family: monospace;
+      font-size: 12px;
+      width: 12rem;
+      height: 20px;
+    }
+
+    .btn-box {
+      display: flex;
+      justify-content: center;
+      padding-top: 1rem;
+
+      button {
+        width: 6rem;
+        height: 2rem;
+        background-color: #333;
+        color: white;
+        border-radius: 8px;
+        font-family: unset;
+      }
+    }
+  }
+
+  input {
+    text-align: center;
+  }
 }
 
 .signIn-box {
+  display: flex;
+  justify-content: center;
+  .sign-link {
+    color: rgb(133, 193, 233);
+    cursor: pointer;
+  }
+
+  h6 {
+    margin-right: 5px;
+  }
+
+  a {
+    text-decoration: none;
+  }
 }
