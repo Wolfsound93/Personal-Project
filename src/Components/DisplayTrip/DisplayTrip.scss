@@ -1,8 +1,56 @@
-.trip-container {
+#root-displytrip {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
+  padding: 2rem;
+}
+
+.trip-container {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 5px 5px 5px;
   width: 20rem;
-  border: 1px solid red;
+  background-color: #f4f4f4;
+
+  h4 {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px 10px 0px;
+  }
+
+  .box1 {
+    border-bottom: 1px #bdc3c7 solid;
+  }
+
+  .box2 {
+    border-bottom: 1px #bdc3c7 solid;
+  }
+
+  .box3 {
+    border-bottom: 1px #bdc3c7 solid;
+  }
+
+  .box4 {
+    border-bottom: 1px #bdc3c7 solid;
+  }
+
+  .box5 {
+    border-bottom: 1px #bdc3c7 solid;
+  }
+
+  .box6 {
+  }
+
+  .box7 {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      font-family: unset;
+      background-color: #f7dc6f;
+      width: 6rem;
+      height: 2rem;
+      border-radius: 8px;
+    }
+  }
 }

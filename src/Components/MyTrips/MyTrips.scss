@@ -6,10 +6,32 @@ $button-primary: rgb(247, 220, 111);
   align-items: center;
   margin-top: 3rem;
 
+  h1 {
+    font-size: 4rem;
+    color: white;
+    font-family: monospace;
+  }
+
   .add-btn {
+    font-family: unset;
     background-color: $button-primary;
     height: 2rem;
     width: 7rem;
-    border-radius: 3px;
+    border-radius: 8px;
+  }
+}
+
+.count-box {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 0 10px 0;
+
+  button {
+    font-family: unset;
+    background-color: #333;
+    color: gold;
+    height: 2rem;
+    width: 7rem;
+    border-radius: 8px;
   }
 }

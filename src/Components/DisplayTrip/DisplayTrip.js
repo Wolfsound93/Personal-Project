@@ -4,10 +4,10 @@ import './DisplayTrip.css';
 class DisplayTrip extends Component {
   render() {
     return (
-      <div>
+      <div id='root-displytrip'>
         <div className='trip-container'>
+          <h4>Trip 1</h4>
           <div className='box1'>
-            <h4>Trip 1</h4>
             <h5>Origin:</h5>
           </div>
           <div className='box2'>

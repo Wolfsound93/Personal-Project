@@ -12,10 +12,36 @@
   margin-top: 3rem;
 }
 
+.trip-box h1 {
+  font-size: 4rem;
+  color: white;
+  font-family: monospace;
+}
+
 .trip-box .add-btn {
+  font-family: unset;
   background-color: #f7dc6f;
   height: 2rem;
   width: 7rem;
-  border-radius: 3px;
+  border-radius: 8px;
+}
+
+.count-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 0 0 10px 0;
+}
+
+.count-box button {
+  font-family: unset;
+  background-color: #333;
+  color: gold;
+  height: 2rem;
+  width: 7rem;
+  border-radius: 8px;
 }
 /*# sourceMappingURL=MyTrips.css.map */

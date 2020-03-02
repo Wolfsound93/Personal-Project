@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-
-import Header from '../Header/Header';
 import './Register.css';
 import { Link, Redirect } from 'react-router-dom';
 import {

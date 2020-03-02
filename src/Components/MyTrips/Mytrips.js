@@ -7,14 +7,18 @@ import DisplayTrip from '../DisplayTrip/DisplayTrip';
 class MyTrips extends Component {
   render() {
     return (
-      <div>
+      <div className='root-mytrips'>
         <Header />
         <div className='trip-box'>
           <h1>You don't have any trips yet!</h1>
           <button className='add-btn'>Add trip</button>
         </div>
-        <AddTrip />
+        {/* <AddTrip /> */}
         <DisplayTrip />
+        <div className='count-box'>
+          <button>count all miles</button>
+          <button>count total fuel</button>
+        </div>
       </div>
     );
   }
