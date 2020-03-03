@@ -79,8 +79,7 @@ export default function authReducer(state = initialState, action) {
     case `${REGISTER_USER}_PENDING`:
       return {
         ...state,
-        loading: true,
-        loggedIn: true
+        loading: true
       };
     case `${REGISTER_USER}_FULFILLED`:
       return {
@@ -107,10 +106,11 @@ export default function authReducer(state = initialState, action) {
       };
     case `${LOGOUT_USER}_FULFILLED`:
       return {
-        ...state,
-        loading: false,
-        loggedIn: false,
-        user: []
+        first_name: '',
+        password: '',
+        user_email: '',
+        user: [],
+        loggedIn: false
       };
     case `${GET_USER}_PENDING`:
       return {
@@ -121,6 +121,7 @@ export default function authReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
+        // loggedIn: true,
         user: payload.data
       };
     default:

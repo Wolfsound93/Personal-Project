@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header';
 import './Home.css';
+import { connect } from 'react-redux';
 
 class Home extends Component {
   render() {
@@ -27,4 +28,10 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = state => {
+  return {
+    loggedIn: state.authReducer.loggedIn
+  };
+};
+
+export default connect(mapStateToProps)(Home);

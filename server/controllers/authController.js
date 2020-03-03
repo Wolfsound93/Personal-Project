@@ -52,13 +52,12 @@ const login = (req, res) => {
 };
 
 const logOut = (req, res) => {
-  console.log(req.session);
   req.session.destroy();
   res.status(200).json('User Logged Out');
 };
 
 const get_user = (req, res) => {
-  console.log(req.session);
+  // console.log(req.session);
   res.status(200).json(req.session.user);
 };
 

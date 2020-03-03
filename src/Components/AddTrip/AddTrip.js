@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './AddTrip.css';
 
-class MyTrips2 extends Component {
+class AddTrip extends Component {
   render() {
     return (
-      <div>
+      <div id='addTrip-root'>
         <div className='trip-info'>
           <h5>ORIGIN</h5>
           <input placeholder='Where did you start your trip?' />
@@ -12,6 +12,8 @@ class MyTrips2 extends Component {
           <input placeholder='where did you fuel (location)?' />
           <h5>TOTAL SPENT</h5>
           <input placeholder='how much did you spent?' />
+          <h5>RECEIPTS</h5>
+          <input type='file' className='upload-btn' />
           <h5>DESTENATION</h5>
           <input placeholder='where did you end you trip?' />
           <h5>TOTAL MILES</h5>
@@ -23,4 +25,4 @@ class MyTrips2 extends Component {
   }
 }
 
-export default MyTrips2;
+export default AddTrip;

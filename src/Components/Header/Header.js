@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
 import './Header.css';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logOut, getUser } from '../../redux/reducers/authReducer';
 
 class Header extends Component {
+  componentDidMount() {
+    this.props.getUser();
+  }
+
+  handleLogOut = () => {
+    this.props.logOut();
+  };
+
   render() {
+    if (!this.props.user.user_id) return <Redirect to='/' />;
     return (
       <header>
         <h1 className='primary-logo'>
@@ -17,12 +28,21 @@ class Header extends Component {
             <li>My Trips</li>
           </Link>
           <Link>
-            <li>Log Out</li>
+            <li onClick={this.handleLogOut}>Log Out</li>
           </Link>
         </ul>
       </header>
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    loggedIn: state.authReducer.loggedIn,
+    user: state.authReducer.user
+  };
+};
 
-export default Header;
+export default connect(mapStateToProps, {
+  logOut,
+  getUser
+})(Header);

@@ -31,6 +31,7 @@ class Login extends Component {
     //we can bring it in to the login component and write an if statement to see if user_id exists on session.
     //if it does, we will use <Redirect> to home from react-router-dom to redirect to the correct page.
     console.log(this.props.user);
+    console.log(this.props.loggedIn);
     if (this.props.user.user_id) {
       return <Redirect to='/home' />;
     }
@@ -81,7 +82,8 @@ const mapStateToProps = state => {
     user_email: state.authReducer.user_email,
     first_name: state.authReducer.first_name,
     password: state.authReducer.password,
-    user: state.authReducer.user
+    user: state.authReducer.user,
+    loggedIn: state.authReducer.loggedIn
   };
 };
 
