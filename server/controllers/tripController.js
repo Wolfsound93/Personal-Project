@@ -4,7 +4,8 @@
 //GET
 const getTrips = (req, res) => {
   const db = req.app.get('db');
-  db.get_trip()
+  db.trip
+    .get_trip()
     .then(trips => res.status(200).json(trips))
     .catch(err => console.log(err));
 };
