@@ -9,8 +9,11 @@ class MyTrips extends Component {
     super();
     this.state = {
       view: 'displayTrip'
+      //trips : []
     };
   }
+
+  //componentdidmount  - axios request to get all trips for specific user. store in state.
 
   addTrip = () => {
     this.setState({ view: 'addTrip' });
@@ -30,7 +33,9 @@ class MyTrips extends Component {
             Add trip
           </button>
         </div>
-        {this.state.view === 'addTrip' ? <AddTrip /> : <DisplayTrip />}
+        {/* {this.state.trips.length === 0 ? null : <DisplayTrip trips={this.state.trips}/>} */}
+        <DisplayTrip />
+        {this.state.view === 'addTrip' ? <AddTrip /> : null}
         <div className='count-box'>
           <button>count all miles</button>
           <button>count total fuel</button>
