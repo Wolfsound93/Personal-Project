@@ -53,14 +53,8 @@ class DisplayTrip extends Component {
         </div>
       );
     });
-    //////////////////////
-    return (
-      ///////////////////
 
-      /////////////////////
-
-      <>{mappedTrips}</>
-    );
+    return <>{mappedTrips}</>;
   }
 }
 
