@@ -8,14 +8,17 @@ class AddTrip extends Component {
       origin: '',
       fuel_stop: '',
       fuel_stops: [],
+      fuel_expenses: [],
       total_spent: 0,
       destination: '',
       total_miles: 0
     };
   }
+
   handleInput = e => {
-    this.setState({ [e.target.name]: e.target.value})
-  }
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
   handleAddFuelStop = () => {
     if (this.state.fuel_stop) {
       const fuelStopsCopy = [...this.state.fuel_stops];
@@ -27,11 +30,26 @@ class AddTrip extends Component {
         fuel_stops: fuelStopsCopy
       });
     }
-  }
+  };
+
+  handleFuelExpenses = () => {
+    if (this.state.total_spent) {
+      const fuelTotalCopy = [...this.state.fuel_expenses];
+
+      fuelTotalCopy.push(this.state.total_spent);
+
+      this.setState({
+        total_spent: 0,
+        fuel_expenses: fuelTotalCopy.map(val => +val)
+      });
+    }
+  };
+
   handleSave = () => {
     const {
       origin,
       fuel_stops,
+      fuel_expenses,
       total_spent,
       destination,
       total_miles
@@ -40,36 +58,76 @@ class AddTrip extends Component {
     const newTrip = {
       origin,
       fuel_stops,
+      fuel_expenses,
       total_spent,
       destination,
       total_miles
-    }
+    };
 
-    console.log(newTrip)
-  }
+    console.log(newTrip);
+  };
   render() {
     return (
       <div id='addTrip-root'>
         <div className='trip-info'>
           <h5>ORIGIN</h5>
-          <input name='origin' onChange={this.handleInput} placeholder='Where did you start your trip?' />
+          <input
+            name='origin'
+            onChange={this.handleInput}
+            placeholder='Where did you start your trip?'
+          />
 
-          <h5>FUEL STOP</h5>
-          <input name='fuel_stop' onChange={this.handleInput} onBlur={this.handleAddFuelStop} value={this.state.fuel_stop} placeholder='where did you fuel (location)?' />
+          <div className='total-box'>
+            <h5>FUEL STOPS</h5>
+            <i
+              name='icon'
+              onClick={this.handleAddFuelStop}
+              className='fas fa-plus'
+            ></i>
+          </div>
+          <input
+            name='fuel_stop'
+            onChange={this.handleInput}
+            value={this.state.fuel_stop}
+            placeholder='where did you fuel (locations)?'
+          />
 
-          <h5>TOTAL SPENT</h5>
-          <input name='total_spent' onChange={this.handleInput} placeholder='how much did you spent?' />
+          <div className='total-box2'>
+            <h5>TOTAL SPENT</h5>
+            <i
+              name='icon'
+              onClick={this.handleFuelExpenses}
+              className='fas fa-plus'
+            ></i>
+          </div>
 
-          <h5>RECEIPTS</h5>
+          <input
+            name='total_spent'
+            onChange={this.handleInput}
+            value={this.state.total_spent}
+            placeholder='how much did you spent?'
+          />
+
+          <h5>RECEIPT</h5>
           <input name='receipts' type='file' className='upload-btn' />
 
           <h5>DESTINATION</h5>
-          <input name='destination' onChange={this.handleInput} placeholder='where did you end you trip?' />
+          <input
+            name='destination'
+            onChange={this.handleInput}
+            placeholder='where did you end you trip?'
+          />
 
           <h5>TOTAL MILES</h5>
-          <input name='total_miles' onChange={this.handleInput} placeholder='how many miles were driven?' />
+          <input
+            name='total_miles'
+            onChange={this.handleInput}
+            placeholder='how many miles were driven?'
+          />
 
-          <button onClick={this.handleSave} className='save-btn'>save trip</button>
+          <button onClick={this.handleSave} className='save-btn'>
+            save trip
+          </button>
         </div>
       </div>
     );

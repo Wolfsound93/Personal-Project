@@ -22,14 +22,14 @@ export const updateState = e => {
 export const getTrips = () => {
   return {
     type: GET_TRIPS,
-    payload: axios.get('/api/trips')
+    payload: axios.get('/api/user/trips')
   };
 };
 
 //REDUCER
 export default function tripReducer(state = initialState, action) {
   const { type, payload } = action;
-  console.log(action);
+  // console.log(action);
   switch (type) {
     case UPDATE_STATE:
       return {

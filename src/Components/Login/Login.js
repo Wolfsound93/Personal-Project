@@ -17,7 +17,8 @@ class Login extends Component {
   handleClickLogin = () => {
     console.log('handleClickLogin login line 18');
     this.props
-      .loginUser(this.props.user_email, this.props.password)
+      // .loginUser(this.props.user_email, this.props.password)
+      .loginUser('arthur@test.test', 'test')
       .then(res => {
         console.log(res);
       })
@@ -46,7 +47,7 @@ class Login extends Component {
         </header>
         <div className='primary-login'>
           <h1>Welcome To TriPlan!</h1>
-          <h2>Please Log in!</h2>
+          <h2>Please Log in</h2>
           <i class='fas fa-user'></i>
           <section className='info-box'>
             <div className='input-field1'>

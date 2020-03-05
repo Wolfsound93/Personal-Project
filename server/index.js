@@ -4,7 +4,7 @@ const massive = require('massive');
 const session = require('express-session');
 const app = express();
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
-const { getTrips } = require('./controllers/tripController');
+const { getTrips, getUserTrips } = require('./controllers/tripController');
 
 //CONTROLLERS
 const auth = require('./controllers/authController');
@@ -36,5 +36,6 @@ app.get('/auth/logout', auth.logOut);
 app.get('/auth/user', auth.get_user);
 //trips
 app.get('/api/trips', getTrips);
+app.get('/api/user/trips', getUserTrips);
 
 app.listen(SERVER_PORT, () => console.log(`the server in on!`));

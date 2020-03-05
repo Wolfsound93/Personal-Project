@@ -1,4 +1,4 @@
-.greeting-title, .web-des, .user-direct {
+.web-des, .user-direct {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11,7 +11,35 @@
           flex-direction: column;
 }
 
-body {
-  background-color: #f4f4f4;
+.use-inf {
+  padding: 5%;
+}
+
+.greeting-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.greeting-title h1 {
+  margin-left: 5px;
+  color: #f7dc6f;
+}
+
+.greeting-title h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.web-des h5 {
+  font-size: 2rem;
+  text-align: center;
 }
 /*# sourceMappingURL=Home.css.map */

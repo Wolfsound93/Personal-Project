@@ -10,13 +10,23 @@ class Home extends Component {
         <Header />
         <div className='use-inf'>
           <div className='greeting-title'>
-            <h1>Hello UserName!</h1>
+            <h2>Hello</h2>
+            <h1>
+              {this.props.first_name
+                ? this.props.first_name.toUpperCase()
+                : null}
+            </h1>
           </div>
           <div className='web-des'>
             <h5>
               welcome to triPlan the website that will easily help you keep
-              truck of your milage locations and expenses over the road. are you
-              ready?
+              <br />
+              <br />
+              truck of your milage, locations, expenses and more while on the
+              road.
+              <br />
+              <br />
+              are you ready?
             </h5>
           </div>
           <div className='user-direct'>
@@ -30,6 +40,7 @@ class Home extends Component {
 
 const mapStateToProps = state => {
   return {
+    first_name: state.authReducer.user.first_name,
     loggedIn: state.authReducer.loggedIn
   };
 };

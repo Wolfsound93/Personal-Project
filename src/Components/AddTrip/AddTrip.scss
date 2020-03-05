@@ -11,6 +11,38 @@ $button-primary: rgb(247, 220, 111);
     background-color: white;
     width: 15rem;
 
+    .total-box {
+      display: flex;
+      align-items: center;
+      width: 52%;
+
+      h5 {
+        margin-left: 25%;
+      }
+
+      i {
+        margin-left: 18%;
+        cursor: pointer;
+        user-select: none;
+      }
+    }
+
+    .total-box2 {
+      display: flex;
+      align-items: center;
+      width: 52%;
+
+      h5 {
+        margin-left: 20%;
+      }
+
+      i {
+        margin-left: 18%;
+        cursor: pointer;
+        user-select: none;
+      }
+    }
+
     input {
       width: 10rem;
       height: 25px;

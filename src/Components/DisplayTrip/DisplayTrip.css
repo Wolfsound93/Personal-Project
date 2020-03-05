@@ -79,23 +79,29 @@
 }
 
 .trip-container .box4 .img-container .img-1 {
-  width: 100px;
-  height: 100px;
+  width: 8rem;
+  height: 8rem;
   border: black 1px solid;
+  background-image: url("https://www.collegehockeyfamilyadvisor.com/wp-content/uploads/2019/01/no-image.jpeg");
+  background-position: center;
 }
 
 .trip-container .box4 .img-container .img-2 {
-  width: 100px;
-  height: 100px;
+  width: 8rem;
+  height: 8rem;
   border: black 1px solid;
   margin-left: 2rem;
+  background-image: url("https://www.collegehockeyfamilyadvisor.com/wp-content/uploads/2019/01/no-image.jpeg");
+  background-position: center;
 }
 
 .trip-container .box4 .img-container .img-3 {
-  width: 100px;
-  height: 100px;
+  width: 8rem;
+  height: 8rem;
   border: black 1px solid;
   margin-left: 2rem;
+  background-image: url("https://www.collegehockeyfamilyadvisor.com/wp-content/uploads/2019/01/no-image.jpeg");
+  background-position: center;
 }
 
 .trip-container .box5 {
