@@ -10,6 +10,9 @@ const initialState = {
 const UPDATE_STATE = 'UPDATE_STATE';
 const RESET_FIELD = 'RESET_FIELD';
 const GET_TRIPS = 'GET_TRIPS';
+const ADD_TRIP = 'ADD_TRIP';
+const DELETE_TRIP = 'DELETE_TRIP';
+const UPDATE_TRIP = 'UPDATE_TRIP';
 
 //ACTION CREATORS
 export const updateState = e => {
@@ -25,11 +28,32 @@ export const getTrips = () => {
     payload: axios.get('/api/user/trips')
   };
 };
+export const addTrip = trip => {
+  return {
+    type: ADD_TRIP,
+    payload: axios.post('/api/trip', {
+      trip
+    })
+  };
+};
+export const deleteTrip = trip => {
+  return {
+    type: DELETE_TRIP,
+    payload: axios.delete('/api/trip/:id')
+  };
+};
+export const updateTrip = newTrip => {
+  return {
+    type: UPDATE_TRIP,
+    //axios request with url, paramater would be what you are wanting to update
+    payload: newTrip
+  };
+};
 
 //REDUCER
-export default function tripReducer(state = initialState, action) {
+export default function reducer(state = initialState, action) {
   const { type, payload } = action;
-  // console.log(action);
+  console.log(action);
   switch (type) {
     case UPDATE_STATE:
       return {
@@ -46,6 +70,21 @@ export default function tripReducer(state = initialState, action) {
       return {
         ...state,
         trips: payload.data
+      };
+    case ADD_TRIP + '_FULFILLED':
+      return {
+        ...state,
+        trips: payload.data
+      };
+    case DELETE_TRIP + '_FULFILLED':
+      return {
+        ...state,
+        trips: action.payload.data
+      };
+    case UPDATE_TRIP + '_FULFILLED':
+      return {
+        ...state,
+        trips: action.payload.data
       };
 
     default:
