@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './AddTrip.css';
+import { connect } from 'react-redux';
+import { addTrip } from '../../redux/reducers/tripReducer';
+import { add_fuel_total } from '../../redux/reducers/fuel_totalReducer';
 
 class AddTrip extends Component {
   constructor() {
@@ -63,10 +66,13 @@ class AddTrip extends Component {
       destination,
       total_miles
     };
-
+    this.props.addTrip(newTrip);
+    // this.props.add_fuel_total(this.state.fuel_expenses);
     console.log(newTrip);
   };
   render() {
+    console.log(this.state.fuel_stop);
+    console.log(this.state.fuel_stops);
     return (
       <div id='addTrip-root'>
         <div className='trip-info'>
@@ -134,4 +140,10 @@ class AddTrip extends Component {
   }
 }
 
-export default AddTrip;
+const mapStateToProps = initialState => {
+  return {
+    trips: initialState.tripReducer.trips
+  };
+};
+
+export default connect(mapStateToProps, { addTrip, add_fuel_total })(AddTrip);

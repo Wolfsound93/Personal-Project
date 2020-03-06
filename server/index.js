@@ -42,8 +42,8 @@ app.get('/auth/user', auth.get_user);
 app.get('/api/trips', trip.getTrips);
 app.get('/api/user/trips', trip.getUserTrips);
 app.delete('/api/trip/:id', trip.deleteTrip);
-app.post('./api/trip', trip.addTrip);
-app.put('./api/trip', trip.put_trip);
+app.post('/api/trip', trip.addTrip);
+app.put('/api/trip', trip.put_trip);
 //receipts
 app.get('./api/user/receipt', receipt.getReceipt);
 app.post('/api/user/receipt/:id', receipt.addReceipt);

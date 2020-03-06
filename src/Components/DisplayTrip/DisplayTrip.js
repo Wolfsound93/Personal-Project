@@ -12,7 +12,6 @@ class DisplayTrip extends Component {
   render() {
     ////////////////////////
     const mappedTrips = this.props.trips.map((val, index) => {
-      console.log(val);
       return (
         <div id='root-displytrip' key={index}>
           <div className='trip-container'>

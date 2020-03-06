@@ -52,7 +52,6 @@ export const update_fuel_stops = new_fuel_stops => {
 //REDUCER
 export default function fuel_stopsReducer(state = initialState, action) {
   const { type, payload } = action;
-  console.log(action);
   switch (type) {
     case UPDATE_STATE:
       return {

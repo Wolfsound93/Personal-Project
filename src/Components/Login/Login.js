@@ -31,7 +31,6 @@ class Login extends Component {
     //bring in user_id from the getSession call and store it in redux. Once we have that user_id
     //we can bring it in to the login component and write an if statement to see if user_id exists on session.
     //if it does, we will use <Redirect> to home from react-router-dom to redirect to the correct page.
-    console.log(this.props.user);
     console.log(this.props.loggedIn);
     if (this.props.user.user_id) {
       return <Redirect to='/home' />;

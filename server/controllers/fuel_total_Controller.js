@@ -21,7 +21,8 @@ const get_fuel_total = (req, res) => {
 const add_fuel_total = (req, res) => {
   const db = req.app.get('db');
   const { fuel_total } = req.body;
-  db.post_fuel_total(fuel_total)
+  db.fuel_total
+    .post_fuel_total(fuel_total)
     .then(added_fuel_trip => res.status(200).json(added_fuel_trip))
     .catch(err => console.log(err));
 };

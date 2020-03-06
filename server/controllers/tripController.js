@@ -21,9 +21,41 @@ const getUserTrips = (req, res) => {
 //POST
 const addTrip = (req, res) => {
   const db = req.app.get('db');
-  const { trip } = req.body;
-  db.post_trip(trip)
-    .then(addedTrip => res.status(200).json(addedTrip))
+  console.log(req.body);
+  const {
+    origin,
+    destination,
+    fuel_total_id,
+    receipt_id,
+    total_miles,
+    fuel_stops_id,
+    fuel_expenses,
+    total_spent
+  } = req.body.newTrip;
+  const { user_id } = req.session.user;
+  console.log(user_id, req.body);
+  db.trip
+    .post_trip(
+      user_id,
+      origin,
+      destination,
+      fuel_total_id,
+      receipt_id,
+      total_miles,
+      fuel_stops_id
+    )
+    .then(trip => {
+      db.fuel_total
+        .post_fuel_total([total_spent, trip[0].trip_id])
+        .then(fuel_total => {
+          console.log(fuel_total);
+          db.trip.updateFuelTotalId([
+            trip[0].trip_id,
+            fuel_total[0].fuel_total_id
+          ]);
+        });
+      res.status(200).json(trip);
+    })
     .catch(err => console.log(err));
 };
 //DELETE

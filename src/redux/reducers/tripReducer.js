@@ -28,18 +28,19 @@ export const getTrips = () => {
     payload: axios.get('/api/user/trips')
   };
 };
-export const addTrip = trip => {
+export const addTrip = newTrip => {
+  console.log(newTrip);
   return {
     type: ADD_TRIP,
     payload: axios.post('/api/trip', {
-      trip
+      newTrip
     })
   };
 };
-export const deleteTrip = trip => {
+export const deleteTrip = trip_id => {
   return {
     type: DELETE_TRIP,
-    payload: axios.delete('/api/trip/:id')
+    payload: axios.delete(`/api/trip/${trip_id}`)
   };
 };
 export const updateTrip = newTrip => {
@@ -53,7 +54,6 @@ export const updateTrip = newTrip => {
 //REDUCER
 export default function reducer(state = initialState, action) {
   const { type, payload } = action;
-  console.log(action);
   switch (type) {
     case UPDATE_STATE:
       return {
@@ -72,6 +72,7 @@ export default function reducer(state = initialState, action) {
         trips: payload.data
       };
     case ADD_TRIP + '_FULFILLED':
+      console.log(payload.data);
       return {
         ...state,
         trips: payload.data
