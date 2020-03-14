@@ -32,46 +32,37 @@ $button-primary: rgb(247, 220, 111);
       margin: 0 0 2% 0;
       background-image: linear-gradient(103deg, #94960094, #160b154d);
 
-      textarea {
-        width: 72%;
-        height: 2rem;
-        resize: none;
-        overscroll-behavior-y: auto;
-      }
-
       .total-box {
         display: flex;
         align-items: center;
-        width: 63%;
-        margin: 0 0 0 10%;
+        width: 100%;
+        margin: 0 0 0 0;
 
         h5 {
-          font-size: 25px;
-          margin: 4% 0% 3% 4%;
-        }
-
-        input {
-          width: 10rem;
-          height: 25px;
-          text-align: center;
+          font-size: 24px;
+          margin: 4% 0% 3% 2%;
         }
       }
 
-      .total-box2 {
+      .stop-inputs {
         display: flex;
-        align-items: center;
-        width: 63%;
-        margin: 0 0 0 10%;
+        width: 100%;
 
-        h5 {
-          font-size: 25px;
-          margin: 4% 0% 3% 1%;
+        textarea {
+          width: 37%;
+          height: 25px;
+          font-size: 9px;
+          margin: 0 0 0 8%;
+          resize: none;
+          overscroll-behavior-y: auto;
         }
 
         input {
-          width: 10rem;
+          width: 36%;
           height: 25px;
           text-align: center;
+          font-size: 10px;
+          margin: 0% 0% 0% 8%;
         }
       }
     }

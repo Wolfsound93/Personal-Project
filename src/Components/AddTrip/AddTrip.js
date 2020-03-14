@@ -66,24 +66,24 @@ class AddTrip extends Component {
           <div id='stops-root'>
             <div className='total-box'>
               <h5>FUEL STOPS</h5>
-            </div>
-            <textarea
-              name='fuel_stops'
-              onChange={this.handleInput}
-              // value={this.state.fuel_stops}
-              placeholder='where did you fuel? (locations)&#13;&#10;stop one - "2525 preston rd, Plano TX 75093"&#13;&#10;stop two - "500 E St, Dallas TX 72441"&#13;&#10;stop three - "1900 Industrial South St, Huston TX 73299"&#13;&#10;3 STOPS MAX!'
-            />
-
-            <div className='total-box2'>
               <h5>TOTAL SPENT</h5>
             </div>
 
-            <input
-              name='total_spent'
-              onChange={this.handleInput}
-              value={this.props.total_spent}
-              placeholder='how much did you spent?'
-            />
+            <div className='stop-inputs'>
+              <textarea
+                name='fuel_stops'
+                onChange={this.handleInput}
+                // value={this.state.fuel_stops}
+                placeholder='where did you fuel? (locations)&#13;&#10;stop one - "2525 preston rd, Plano TX 75093"&#13;&#10;stop two - "500 E St, Dallas TX 72441"&#13;&#10;stop three - "1900 Industrial South St, Huston TX 73299"&#13;&#10;3 STOPS MAX!'
+              />
+
+              <input
+                name='total_spent'
+                onChange={this.handleInput}
+                value={this.props.total_spent}
+                placeholder='how much did you spent?'
+              />
+            </div>
 
             <h5>RECEIPT</h5>
             <input name='receipts' type='file' className='upload-btn' />

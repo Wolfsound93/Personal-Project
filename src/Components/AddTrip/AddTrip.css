@@ -62,13 +62,6 @@
   background-image: linear-gradient(103deg, #94960094, #160b154d);
 }
 
-#addTrip-root .trip-info #stops-root textarea {
-  width: 72%;
-  height: 2rem;
-  resize: none;
-  overscroll-behavior-y: auto;
-}
-
 #addTrip-root .trip-info #stops-root .total-box {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -76,41 +69,37 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 63%;
-  margin: 0 0 0 10%;
+  width: 100%;
+  margin: 0 0 0 0;
 }
 
 #addTrip-root .trip-info #stops-root .total-box h5 {
-  font-size: 25px;
-  margin: 4% 0% 3% 4%;
+  font-size: 24px;
+  margin: 4% 0% 3% 2%;
 }
 
-#addTrip-root .trip-info #stops-root .total-box input {
-  width: 10rem;
-  height: 25px;
-  text-align: center;
-}
-
-#addTrip-root .trip-info #stops-root .total-box2 {
+#addTrip-root .trip-info #stops-root .stop-inputs {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 63%;
-  margin: 0 0 0 10%;
+  width: 100%;
 }
 
-#addTrip-root .trip-info #stops-root .total-box2 h5 {
-  font-size: 25px;
-  margin: 4% 0% 3% 1%;
+#addTrip-root .trip-info #stops-root .stop-inputs textarea {
+  width: 37%;
+  height: 25px;
+  font-size: 9px;
+  margin: 0 0 0 8%;
+  resize: none;
+  overscroll-behavior-y: auto;
 }
 
-#addTrip-root .trip-info #stops-root .total-box2 input {
-  width: 10rem;
+#addTrip-root .trip-info #stops-root .stop-inputs input {
+  width: 36%;
   height: 25px;
   text-align: center;
+  font-size: 10px;
+  margin: 0% 0% 0% 8%;
 }
 
 #addTrip-root .trip-info .upload-btn {
