@@ -5,48 +5,75 @@ $button-primary: rgb(247, 220, 111);
   flex-direction: column;
   align-items: center;
   .trip-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-    width: 15rem;
+    background-image: url(https://images.pexels.com/photos/1955134/pexels-photo-1955134.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    background-position: center;
+    border-radius: 4rem;
 
-    .total-box {
-      display: flex;
-      align-items: center;
-      width: 52%;
-
-      h5 {
-        margin-left: 25%;
-      }
-
-      i {
-        margin-left: 18%;
-        cursor: pointer;
-        user-select: none;
-      }
-    }
-
-    .total-box2 {
-      display: flex;
-      align-items: center;
-      width: 52%;
-
-      h5 {
-        margin-left: 20%;
-      }
-
-      i {
-        margin-left: 18%;
-        cursor: pointer;
-        user-select: none;
-      }
+    h5 {
+      color: white;
+      font-size: 25px;
+      margin: 4% 0% 3% 0%;
+      background-color: #0000005e;
     }
 
     input {
-      width: 10rem;
+      width: 50%;
+      font-size: 75%;
       height: 25px;
       text-align: center;
+    }
+
+    #stops-root {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      margin: 0 0 2% 0;
+      background-image: linear-gradient(103deg, #94960094, #160b154d);
+
+      textarea {
+        width: 72%;
+        height: 2rem;
+        resize: none;
+        overscroll-behavior-y: auto;
+      }
+
+      .total-box {
+        display: flex;
+        align-items: center;
+        width: 63%;
+        margin: 0 0 0 10%;
+
+        h5 {
+          font-size: 25px;
+          margin: 4% 0% 3% 4%;
+        }
+
+        input {
+          width: 10rem;
+          height: 25px;
+          text-align: center;
+        }
+      }
+
+      .total-box2 {
+        display: flex;
+        align-items: center;
+        width: 63%;
+        margin: 0 0 0 10%;
+
+        h5 {
+          font-size: 25px;
+          margin: 4% 0% 3% 1%;
+        }
+
+        input {
+          width: 10rem;
+          height: 25px;
+          text-align: center;
+        }
+      }
     }
 
     .upload-btn {
@@ -65,7 +92,7 @@ $button-primary: rgb(247, 220, 111);
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
+
     width: 20rem;
     margin: 4rem 0rem 2rem 0rem;
     box-shadow: 0 3px 7px #333;

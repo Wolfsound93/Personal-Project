@@ -4,14 +4,11 @@ const massive = require('massive');
 const session = require('express-session');
 const app = express();
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
-// const { trip } = require('./controllers/tripController');
 
 //CONTROLLERS
 const auth = require('./controllers/authController');
+const stops = require('./controllers/stopsController');
 const trip = require('./controllers/tripController');
-const receipt = require('./controllers/receiptController');
-const fuel_total = require('./controllers/fuel_total_Controller');
-const fuel_stops = require('./controllers/fuel_stops_Controller');
 
 massive(CONNECTION_STRING)
   .then(db => {
@@ -39,22 +36,15 @@ app.post('/auth/login', auth.login);
 app.get('/auth/logout', auth.logOut);
 app.get('/auth/user', auth.get_user);
 //trips
-app.get('/api/trips', trip.getTrips);
-app.get('/api/user/trips', trip.getUserTrips);
+app.get('/api/trips', trip.getTrips); // follow the yellow brick road
+app.get('/api/user/trips', trip.getUserTrips); //follow the yellow brick road
 app.delete('/api/trip/:id', trip.deleteTrip);
 app.post('/api/trip', trip.addTrip);
 app.put('/api/trip', trip.put_trip);
-//receipts
-app.get('./api/user/receipt', receipt.getReceipt);
-app.post('/api/user/receipt/:id', receipt.addReceipt);
-app.delete('/api/receipt/:id', receipt.deleteReceipt);
-//fuel_trips
-app.get('/api/user/fuel_total', fuel_total.get_fuel_total);
-app.post('/api/fuel_total', fuel_total.add_fuel_total);
-app.delete('/api/fuel_total/:id', fuel_total.delete_fuel_trip);
-//fuel_trips
-app.get('/api/user/fuel_stops', fuel_stops.get_fuel_stops);
-app.post('/api/fuel_stops', fuel_stops.get_fuel_stops);
-app.delete('/api/fuel_stops/:id', fuel_stops.get_fuel_stops);
+//stops
+app.get('./api/user/stops', stops.getStops);
+app.post('/api/stops', stops.addStops);
+app.delete('/api/stops/:id', stops.deleteStop);
+app.put('/api/stops/:id', stops.put_stop);
 
 app.listen(SERVER_PORT, () => console.log(`the server in on!`));

@@ -4,14 +4,11 @@ import { connect } from 'react-redux';
 import { getTrips } from '../../redux/reducers/tripReducer';
 
 class DisplayTrip extends Component {
-  ///////////////////////
   componentDidMount() {
     this.props.getTrips();
   }
-  ///////////////////////
   render() {
-    ////////////////////////
-    const mappedTrips = this.props.trips.map((val, index) => {
+    const mappedTrips = this.props.trip.map((val, index) => {
       return (
         <div id='root-displytrip' key={index}>
           <div className='trip-container'>
@@ -60,7 +57,7 @@ class DisplayTrip extends Component {
 // export default DisplayTrip;
 const mapStateToProps = initialState => {
   return {
-    trips: initialState.tripReducer.trips
+    trip: initialState.tripReducer.trip
   };
 };
 

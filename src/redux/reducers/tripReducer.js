@@ -3,13 +3,14 @@ require('dotenv').config();
 
 //INITIAL STATE
 const initialState = {
-  trips: []
+  trip: []
 };
 
 //CONSTANTS
 const UPDATE_STATE = 'UPDATE_STATE';
 const RESET_FIELD = 'RESET_FIELD';
 const GET_TRIPS = 'GET_TRIPS';
+// const GET_USERS_TRIPS = 'GET_USER_TRIP';
 const ADD_TRIP = 'ADD_TRIP';
 const DELETE_TRIP = 'DELETE_TRIP';
 const UPDATE_TRIP = 'UPDATE_TRIP';
@@ -32,9 +33,7 @@ export const addTrip = newTrip => {
   console.log(newTrip);
   return {
     type: ADD_TRIP,
-    payload: axios.post('/api/trip', {
-      newTrip
-    })
+    payload: axios.post('/api/trip', { newTrip })
   };
 };
 export const deleteTrip = trip_id => {
@@ -52,7 +51,7 @@ export const updateTrip = newTrip => {
 };
 
 //REDUCER
-export default function reducer(state = initialState, action) {
+export default function tripReducer(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
     case UPDATE_STATE:
@@ -62,30 +61,37 @@ export default function reducer(state = initialState, action) {
       };
     case RESET_FIELD:
       return {
-        trips: []
+        trip: []
       };
 
     //TRIPS
     case GET_TRIPS + '_FULFILLED':
+      console.log(payload.data);
       return {
         ...state,
-        trips: payload.data
+        trip: payload.data
       };
+    //added
+    // case GET_USERS_TRIPS + '_FULFILLED':
+    //   return {
+    //     ...state,
+    //     trip: payload.data
+    //   };
     case ADD_TRIP + '_FULFILLED':
       console.log(payload.data);
       return {
         ...state,
-        trips: payload.data
+        trip: payload.data
       };
     case DELETE_TRIP + '_FULFILLED':
       return {
         ...state,
-        trips: action.payload.data
+        trip: action.payload.data
       };
     case UPDATE_TRIP + '_FULFILLED':
       return {
         ...state,
-        trips: action.payload.data
+        trip: action.payload.data
       };
 
     default:

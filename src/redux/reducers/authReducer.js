@@ -106,10 +106,8 @@ export default function authReducer(state = initialState, action) {
       };
     case `${LOGOUT_USER}_FULFILLED`:
       return {
-        first_name: '',
-        password: '',
-        user_email: '',
-        user: [],
+        ...state,
+        loading: false,
         loggedIn: false
       };
     case `${GET_USER}_PENDING`:

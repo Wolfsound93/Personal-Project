@@ -9,12 +9,13 @@ const getTrips = (req, res) => {
     .then(trips => res.status(200).json(trips))
     .catch(err => console.log(err));
 };
-//GET BY USER
+// GET BY USER
 const getUserTrips = (req, res) => {
   const db = req.app.get('db');
-  const { user_id } = req.session.user;
+  console.log(req.session.user);
+  let { user_id } = req.session.user.user_id;
   db.trip
-    .get_user_trip(user_id)
+    .get_users_trip(user_id)
     .then(user_id => res.status(200).json(user_id))
     .catch(err => console.log(err));
 };
@@ -22,38 +23,44 @@ const getUserTrips = (req, res) => {
 const addTrip = (req, res) => {
   const db = req.app.get('db');
   console.log(req.body);
+  let user_id = req.session.user.user_id;
   const {
     origin,
     destination,
-    fuel_total_id,
-    receipt_id,
-    total_miles,
-    fuel_stops_id,
+    milage,
     fuel_expenses,
-    total_spent
+    fuel_stops_location
   } = req.body.newTrip;
-  const { user_id } = req.session.user;
-  console.log(user_id, req.body);
+
+  // const { user_id } = req.session.user;
+  // console.log(user_id, req.body);
   db.trip
-    .post_trip(
-      user_id,
+    .post_trip([
       origin,
       destination,
-      fuel_total_id,
-      receipt_id,
-      total_miles,
-      fuel_stops_id
-    )
+      milage,
+      user_id,
+      fuel_expenses,
+      fuel_stops_location
+    ])
     .then(trip => {
-      db.fuel_total
-        .post_fuel_total([total_spent, trip[0].trip_id])
-        .then(fuel_total => {
-          console.log(fuel_total);
-          db.trip.updateFuelTotalId([
-            trip[0].trip_id,
-            fuel_total[0].fuel_total_id
-          ]);
+      db.trip
+        .post_trip([
+          origin,
+          destination,
+          milage,
+          user_id,
+          fuel_expenses,
+          fuel_stops,
+          fuel_stops_location,
+          trip[0].trip_id
+          // receipt,
+        ])
+        .then(trip => {
+          console.log(trip);
+          db.trip.put_trip([trip[0].trip_id, stops[0].stops_id]);
         });
+      //ABOVE//
       res.status(200).json(trip);
     })
     .catch(err => console.log(err));

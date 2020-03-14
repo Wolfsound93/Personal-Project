@@ -1,2 +1,2 @@
-SELECT * from trip;
-
+select * from trip
+Where user_id = $1

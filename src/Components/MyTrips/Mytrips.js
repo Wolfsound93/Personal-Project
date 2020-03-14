@@ -8,8 +8,8 @@ class MyTrips extends Component {
   constructor() {
     super();
     this.state = {
-      view: 'displayTrip'
-      //trips : []
+      view: 'displayTrip',
+      trip: []
     };
   }
 
@@ -33,8 +33,9 @@ class MyTrips extends Component {
             Add trip
           </button>
         </div>
-        {/* {this.state.trips.length === 0 ? null : <DisplayTrip trips={this.state.trips}/>} */}
-        <DisplayTrip />
+        {this.state.trip.length === 0 ? null : (
+          <DisplayTrip trip={this.state.trip} />
+        )}
         {this.state.view === 'addTrip' ? <AddTrip /> : null}
         <div className='count-box'>
           <button>count all miles</button>

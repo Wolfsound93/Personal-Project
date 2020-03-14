@@ -12,6 +12,9 @@
 }
 
 #addTrip-root .trip-info {
+  background-image: url(https://images.pexels.com/photos/1955134/pexels-photo-1955134.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+  background-position: center;
+  border-radius: 4rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -22,65 +25,89 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: white;
-  width: 15rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
   width: 20rem;
   margin: 4rem 0rem 2rem 0rem;
   -webkit-box-shadow: 0 3px 7px #333;
           box-shadow: 0 3px 7px #333;
 }
 
-#addTrip-root .trip-info .total-box {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 52%;
-}
-
-#addTrip-root .trip-info .total-box h5 {
-  margin-left: 25%;
-}
-
-#addTrip-root .trip-info .total-box i {
-  margin-left: 18%;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-#addTrip-root .trip-info .total-box2 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 52%;
-}
-
-#addTrip-root .trip-info .total-box2 h5 {
-  margin-left: 20%;
-}
-
-#addTrip-root .trip-info .total-box2 i {
-  margin-left: 18%;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+#addTrip-root .trip-info h5 {
+  color: white;
+  font-size: 25px;
+  margin: 4% 0% 3% 0%;
+  background-color: #0000005e;
 }
 
 #addTrip-root .trip-info input {
+  width: 50%;
+  font-size: 75%;
+  height: 25px;
+  text-align: center;
+}
+
+#addTrip-root .trip-info #stops-root {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0 0 2% 0;
+  background-image: linear-gradient(103deg, #94960094, #160b154d);
+}
+
+#addTrip-root .trip-info #stops-root textarea {
+  width: 72%;
+  height: 2rem;
+  resize: none;
+  overscroll-behavior-y: auto;
+}
+
+#addTrip-root .trip-info #stops-root .total-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 63%;
+  margin: 0 0 0 10%;
+}
+
+#addTrip-root .trip-info #stops-root .total-box h5 {
+  font-size: 25px;
+  margin: 4% 0% 3% 4%;
+}
+
+#addTrip-root .trip-info #stops-root .total-box input {
+  width: 10rem;
+  height: 25px;
+  text-align: center;
+}
+
+#addTrip-root .trip-info #stops-root .total-box2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 63%;
+  margin: 0 0 0 10%;
+}
+
+#addTrip-root .trip-info #stops-root .total-box2 h5 {
+  font-size: 25px;
+  margin: 4% 0% 3% 1%;
+}
+
+#addTrip-root .trip-info #stops-root .total-box2 input {
   width: 10rem;
   height: 25px;
   text-align: center;
