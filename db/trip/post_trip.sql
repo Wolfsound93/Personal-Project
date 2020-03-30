@@ -1,5 +1,5 @@
-INSERT INTO trip 
-( origin, destination, mileage, user_id, fuel_expenses, fuel_stops_location)
+INSERT INTO trips 
+( user_id, origin, destination, mileage, fuel_expenses, fuel_stops_location)
 values
 ($1, $2, $3, $4, $5, $6)
 returning*

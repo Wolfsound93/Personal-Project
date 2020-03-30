@@ -10,7 +10,6 @@ const initialState = {
 const UPDATE_STATE = 'UPDATE_STATE';
 const RESET_FIELD = 'RESET_FIELD';
 const GET_TRIPS = 'GET_TRIPS';
-// const GET_USERS_TRIPS = 'GET_USER_TRIP';
 const ADD_TRIP = 'ADD_TRIP';
 const DELETE_TRIP = 'DELETE_TRIP';
 const UPDATE_TRIP = 'UPDATE_TRIP';
@@ -37,6 +36,7 @@ export const addTrip = newTrip => {
   };
 };
 export const deleteTrip = trip_id => {
+  console.log(trip_id);
   return {
     type: DELETE_TRIP,
     payload: axios.delete(`/api/trip/${trip_id}`)
@@ -71,12 +71,6 @@ export default function tripReducer(state = initialState, action) {
         ...state,
         trip: payload.data
       };
-    //added
-    // case GET_USERS_TRIPS + '_FULFILLED':
-    //   return {
-    //     ...state,
-    //     trip: payload.data
-    //   };
     case ADD_TRIP + '_FULFILLED':
       console.log(payload.data);
       return {

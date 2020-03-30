@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './AddTrip.css';
 import { connect } from 'react-redux';
 import { addTrip } from '../../redux/reducers/tripReducer';
+import { Link } from 'react-router-dom';
 
 class AddTrip extends Component {
   constructor() {
@@ -10,34 +11,34 @@ class AddTrip extends Component {
     this.state = {
       origin: '',
       destination: '',
-      total_miles: 0,
-      fuel_stops: '',
-      total_spent: ''
+      milage: null,
+      fuel_stops_location: '',
+      fuel_expenses: null
     };
   }
 
   handleInput = e => {
     this.setState({ [e.target.name]: e.target.value });
-    console.log(e.target.value);
+    // console.log(e.target.value);
   };
 
   handleSave = () => {
     const {
       origin,
       destination,
-      total_miles,
-      fuel_stops,
-      total_spent
+      mileage,
+      fuel_expenses,
+      fuel_stops_location
     } = this.state;
 
     const newTrip = {
       origin,
       destination,
-      total_miles,
-      fuel_stops,
-      total_spent
+      mileage,
+      fuel_expenses,
+      fuel_stops_location
     };
-    console.log(newTrip);
+    this.props.addTrip(newTrip);
   };
   render() {
     return (
@@ -59,7 +60,7 @@ class AddTrip extends Component {
 
           <h5>TOTAL MILES</h5>
           <input
-            name='total_miles'
+            name='mileage'
             onChange={this.handleInput}
             placeholder='how many miles were driven?'
           />
@@ -71,16 +72,14 @@ class AddTrip extends Component {
 
             <div className='stop-inputs'>
               <textarea
-                name='fuel_stops'
+                name='fuel_stops_location'
                 onChange={this.handleInput}
-                // value={this.state.fuel_stops}
                 placeholder='where did you fuel? (locations)&#13;&#10;stop one - "2525 preston rd, Plano TX 75093"&#13;&#10;stop two - "500 E St, Dallas TX 72441"&#13;&#10;stop three - "1900 Industrial South St, Huston TX 73299"&#13;&#10;3 STOPS MAX!'
               />
 
               <input
-                name='total_spent'
+                name='fuel_expenses'
                 onChange={this.handleInput}
-                value={this.props.total_spent}
                 placeholder='how much did you spent?'
               />
             </div>
@@ -88,9 +87,11 @@ class AddTrip extends Component {
             <h5>RECEIPT</h5>
             <input name='receipts' type='file' className='upload-btn' />
           </div>
-          <button onClick={this.handleSave} className='save-btn'>
-            save trip
-          </button>
+          <Link to='DisplayTrip'>
+            <button onClick={this.handleSave} className='save-btn'>
+              save trip
+            </button>
+          </Link>
         </div>
       </div>
     );

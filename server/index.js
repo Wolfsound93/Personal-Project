@@ -38,7 +38,7 @@ app.get('/auth/user', auth.get_user);
 //trips
 app.get('/api/trips', trip.getTrips); // follow the yellow brick road
 app.get('/api/user/trips', trip.getUserTrips); //follow the yellow brick road
-app.delete('/api/trip/:id', trip.deleteTrip);
+app.delete('/api/trip/:trip_id', trip.deleteTrip);
 app.post('/api/trip', trip.addTrip);
 app.put('/api/trip', trip.put_trip);
 //stops

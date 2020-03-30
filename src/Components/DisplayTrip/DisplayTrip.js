@@ -1,13 +1,33 @@
 import React, { Component } from 'react';
 import './DisplayTrip.css';
 import { connect } from 'react-redux';
-import { getTrips } from '../../redux/reducers/tripReducer';
+import { getTrips, deleteTrip } from '../../redux/reducers/tripReducer';
+import { Redirect } from 'react-router-dom';
 
 class DisplayTrip extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      trips: false
+    };
+  }
   componentDidMount() {
     this.props.getTrips();
+    this.setState({ trips: true });
   }
+
+  componentDidUpdate(prevState) {
+    if (prevState !== this.state.trips) {
+      return this.props.getTrips();
+    }
+  }
+
   render() {
+    // if (this.state.trips === '') {
+    //   return <Redirect to='/home' />;
+    // }
+    console.log(this.props.trip);
     const mappedTrips = this.props.trip.map((val, index) => {
       return (
         <div id='root-displytrip' key={index}>
@@ -18,12 +38,12 @@ class DisplayTrip extends Component {
               <h6>{val.origin}</h6>
             </div>
             <div className='box2'>
-              <h5>FUEL STOPS:</h5>
-              <h6></h6>
+              <h5>FUEL STOP:</h5>
+              <h6>{val.fuel_stops_location}</h6>
             </div>
             <div className='box3'>
               <h5>TOTAL SPENT:</h5>
-              <h6>{val.fuel_total}</h6>
+              <h6>{val.fuel_expenses}</h6>
             </div>
             <div className='box4'>
               <h5>RECEIPTS:</h5>
@@ -39,11 +59,13 @@ class DisplayTrip extends Component {
             </div>
             <div className='box6'>
               <h5>TOTAL MILES:</h5>
-              <h6>{val.milage}</h6>
+              <h6>{val.mileage}</h6>
             </div>
             <div className='box7'>
               <button>Edit Trip</button>
-              <button>Delete Trip</button>
+              <button onClick={() => this.props.deleteTrip(val.trip_id)}>
+                Delete Trip
+              </button>
             </div>
           </div>
         </div>
@@ -61,5 +83,5 @@ const mapStateToProps = initialState => {
   };
 };
 
-export default connect(mapStateToProps, { getTrips })(DisplayTrip);
+export default connect(mapStateToProps, { getTrips, deleteTrip })(DisplayTrip);
 //3.3.20

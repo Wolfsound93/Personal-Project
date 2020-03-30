@@ -3,17 +3,23 @@ import './Mytrips.css';
 import Header from '../Header/Header';
 import AddTrip from '../AddTrip/AddTrip';
 import DisplayTrip from '../DisplayTrip/DisplayTrip';
+import { getTrips } from '../../redux/reducers/tripReducer';
+import { connect } from 'react-redux';
+import { Redirect, Link } from 'react-router-dom';
 
 class MyTrips extends Component {
   constructor() {
     super();
     this.state = {
-      view: 'displayTrip',
-      trip: []
+      view: ''
     };
   }
 
   //componentdidmount  - axios request to get all trips for specific user. store in state.
+  componentDidMount() {
+    this.setState({ view: this.props.trip });
+    this.props.getTrips();
+  }
 
   addTrip = () => {
     this.setState({ view: 'addTrip' });
@@ -24,6 +30,10 @@ class MyTrips extends Component {
   };
 
   render() {
+    // if (this.state.view !== this.props.trip) {
+    //   return <Redirect to='/home' />;
+    // }
+    console.log(this.props);
     return (
       <div className='mytrips-root'>
         <Header />
@@ -33,9 +43,9 @@ class MyTrips extends Component {
             Add trip
           </button>
         </div>
-        {this.state.trip.length === 0 ? null : (
-          <DisplayTrip trip={this.state.trip} />
-        )}
+        {/* {this.props.trip.length === 0 ? null : (
+          <DisplayTrip trip={this.props.trip} />
+        )} */}
         {this.state.view === 'addTrip' ? <AddTrip /> : null}
         <div className='count-box'>
           <button>count all miles</button>
@@ -46,4 +56,10 @@ class MyTrips extends Component {
   }
 }
 
-export default MyTrips;
+const mapStateToProps = initialState => {
+  return {
+    trip: initialState.tripReducer.trip
+  };
+};
+
+export default connect(mapStateToProps, { getTrips })(MyTrips);

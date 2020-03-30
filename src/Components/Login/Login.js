@@ -18,7 +18,7 @@ class Login extends Component {
     console.log('handleClickLogin login line 18');
     this.props
       // .loginUser(this.props.user_email, this.props.password)
-      .loginUser('arthur@test.test', 'test1234')
+      .loginUser('new', 'new')
       .then(res => {
         console.log(res);
       })

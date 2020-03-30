@@ -14,6 +14,7 @@ const register = (req, res) => {
           user_email: user[0].user_email,
           first_name: user[0].first_name
         };
+        console.log('Register authController line 17', req.session.user);
         res.status(200).json(req.session.user);
       });
     })
@@ -30,17 +31,18 @@ const register = (req, res) => {
 const login = (req, res) => {
   const db = req.app.get('db');
   const { user_email, password } = req.body;
+  console.log(user_email, password);
   db.auth.get_user(user_email).then(user => {
     if (user.length === 0) {
       res.status(400).json('user is not exist');
     } else {
       bcrypt.compare(password, user[0].hash).then(areEqual => {
         if (areEqual) {
-          const { user_id, first_name, user_email } = user[0];
+          const { user_id, user_email, first_name } = user[0];
           req.session.user = {
             user_id,
-            first_name,
-            user_email
+            user_email,
+            first_name
           };
           res.status(200).json(req.session.user);
         } else {
